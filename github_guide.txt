@@ -1,0 +1,101 @@
+ ####################################################### <=GIT BEGINNER=>###########################################################
+
+
+1. $ git config --global user.name Anshuman (use "" if multiple words)
+
+2. $ git config --global user.email "anshuman011994@gmail.com"
+
+3. create gitignore file, when you don't want to push big file(eg. node_modules) to github
+   $ touch .gitignore
+
+4. $ git init (initialise the project by creating .git folder)
+
+5. $ git add . (add all the files into the staging area)
+
+6. $ git commit -m "intial commit" (when do some changes, we commit to take a snapshot of our changes, here 1st time so "initial commit")
+ 
+7. $ git status (give the status of the repository by giving "on branch master nothing to commit, working tree clean", it means you're ideally ready to publish the project)
+
+8. To upload the project on the github, choose SSH, not https, from your github a/c project repo, then run
+
+   $ git remote add origin git@github.com:Anshumangit/assignment1.git(SSH)
+
+   it means you're telling your gitbash/machine to link your local project to the github repo that you created in the github
+
+9. $ git push orgin master (will not if private respository, and give msg : Please make sure you've the correct access rights and the repo exists, so you'll have to enable SSH key for authentication)
+   -go to github a/c
+   -go to setting
+   -SSH and GPG keys
+   -then google how to generate SSH key on github
+    We're doing to give github repo access to the computer
+   -go to github docs and search for "add a new SSH key"
+   -then look for "Generating a new SSH key and adding it to the ssh-agent" in window section
+   -then look for ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+10. $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+11. enter 3 times, the copy your public key eg. /c/Users/anshu/.ssh/id_ed25519.pub
+
+12. $ cat /c/Users/anshu/.ssh/id_ed25519.pub
+    then you'll get your SSH key
+    eg. ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMBXSfRlO/6mnJKBpmGNEb3j+m2e0rDphlyTGQbBnz/1 anshuman011994@gmail.com
+    then copy your SSH key and paste it in your github SSH key section
+    then click on Add SSH key
+
+13. $ git push orgin master (again run after adding SSH key)
+    it will upload the project on the github
+    after doing some changes locally in your project
+
+14. $ git status (now it'll tell about the change
+
+15. $ git add . (to again add the updated file)
+
+16. $ git commit -m "your comment"
+
+17. $ git status (to check if working tree clean) 
+
+18. refresh your github repository
+
+ ####################################################### <=GIT BRANCHING=>###########################################################
+
+19. $ git checkout -b branchname (to create new branch)
+
+20. $ git checkout branchname (to switch to other branch)
+
+Suppose you've two branch 
+a) master (default)
+b) develop (newly created)
+
+and when you want to merge develop branch to master branch, then you've to first switch to your root branch(here master) then merge
+
+21. $ git merge develop (to merge the branch)
+
+if you'll have any merge conflict then it will show it on your vscode(editor), there you've to choose which changes you want to keep and
+which one you want to discard, after run 
+
+   $ git status (here it will show untracked changes)
+   $ git add ./ $ git add --a (it will put changes in the staging area)
+   $ git commit -m "develop merged" (commit to merge the file)
+
+22. $ git branch --merged (to check which branch you merged)
+
+23. $ git branch --no-merged (to check which branch are not merged)
+
+23. $ git branch -d branchname (to delete the branch)
+    if already merged it will not the show the error and will delete, if you've any unmerged branch then it will not delete with ($ git branch -d branchname)
+
+24. $ git branch -D branchname (to delete the unmerged branch)
+
+25. $ git push origin develop(new branch) (to push your new branch to github remote repo)
+
+26. $ git push -d origin develop ( to delete the branch from the github remote repo)
+
+27. $ git clone your HTTPS/SSH github remote repository path (to clone any github repo to your local machine)
+
+############################################################<=Some commands=>#########################################################
+
+$ pwd (to check present working directory)
+$ ls  (to check list of files in the directory)
+$ cd  (to change the directory)
+
+ 
